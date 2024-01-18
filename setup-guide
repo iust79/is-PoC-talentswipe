@@ -12,3 +12,18 @@
 
 5.	Build the Docker image by running the following command:
           docker build -t hello-world .
+
+6.	Create a Kubernetes Pod that uses the previous hello world Docker image 
+by running the following command:
+          kubectl run hello-world --image=hello-world --port=80
+
+7.	Create a Kubernetes Service for the previous Pod by running the following command:
+        kubectl expose pod hello-world --type=NodePort --name=hello-world-service
+
+8.	Expose the service using port forwarding by running the following command:
+        kubectl port-forward service/hello-world-service 8080:80
+
+9.	Open your web browser and navigate to http://localhost:8080 
+
+
+
